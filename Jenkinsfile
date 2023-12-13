@@ -9,15 +9,6 @@ pipeline {
         maven 'maven 3.9.6'
     }
 
-    environment {
-        // Define environment variables for Docker Hub and AWS ECR credentials
-        DOCKER_HUB_CREDENTIALS = credentials('docker-hub-credentials-id')
-        AWS_ECR_CREDENTIALS = credentials('aws-ecr-credentials-id')
-        DOCKER_IMAGE = 'your-docker-image-name'
-        AWS_REGION = 'your-aws-region'
-        KUBECONFIG = credentials('kubernetes-config-id')
-    }
-
     stages {
         stage('Code Compilation') {
             steps {
