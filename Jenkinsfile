@@ -6,7 +6,8 @@ pipeline {
     agent any
 
     tools {
-        maven 'maven 3.9.6'
+        // Use 'Maven' (capitalized) and specify the tool by its installer name
+        Maven 'Maven 3.9.6'
     }
 
     stages {
