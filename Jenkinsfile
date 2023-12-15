@@ -5,11 +5,17 @@ pipeline {
 
     agent any
 
-    tools {
-        maven 'maven 3.9.6'
-    }
-
     stages {
+        stage('Set up Environment') {
+            steps {
+                script {
+                    // Define Maven tool using the tool installer name
+                    def mvnHome = tool name: 'Maven 3.9.6', type: 'maven'
+                    env.PATH = "${mvnHome}/bin:${env.PATH}"
+                }
+            }
+        }
+
         stage('Code Compilation') {
             steps {
                 echo 'Code Compilation is In Progress!'
